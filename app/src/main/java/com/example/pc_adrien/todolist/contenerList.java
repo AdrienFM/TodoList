@@ -13,6 +13,6 @@ public class contenerList extends MainActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        //setContentView(R.id.);
+        setContentView(R.layout.contener_list);
     }
 }

@@ -5,10 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity
 {
-    Button addButton;
+    ImageButton addButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -17,7 +18,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         final Intent myIntent = new Intent(MainActivity.this,contenerList.class);
-        addButton = (Button) findViewById(R.id.addButton);
+        addButton = (ImageButton) findViewById(R.id.addButton);
 
         addButton.setOnClickListener(new View.OnClickListener()
         {

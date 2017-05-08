@@ -9,44 +9,30 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="448dp"
+        android:layout_height="192dp"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="15dp"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:lines="1"
-        android:ellipsize="end"
-        />
-
+        android:layout_weight="1.01"/>
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="71dp"
+        >
 
         <Space
-            android:layout_width="296dp"
+            android:layout_width="250dp"
             android:layout_height="match_parent"/>
 
         <ImageButton
             android:id="@+id/addButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="96dp"
+            android:layout_height="match_parent"
             android:background="@null"
-            android:src="@drawable/ic_addcicle"/>
+            android:src="@drawable/ic_addcicle"
+            />
 
     </LinearLayout>
-
 
 
 </LinearLayout>

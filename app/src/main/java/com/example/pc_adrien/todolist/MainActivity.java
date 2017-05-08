@@ -16,14 +16,22 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
+
+import static android.R.attr.description;
 
 public class MainActivity extends AppCompatActivity
 {
     ImageButton addButton;
     RecyclerView rv;
+    InputStream fileInput = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -42,78 +50,102 @@ public class MainActivity extends AppCompatActivity
                 startActivity(myIntent);
             }
         });
-    }
 
-    rv = (RecyclerView) findViewById(R.id.list);
-    rv.setLayoutManager(new LinearLayoutManager(this));
-    rv.setAdapter(new MyAdapter());
+        rv = (RecyclerView) findViewById(R.id.list);
+        rv.setLayoutManager(new LinearLayoutManager(this));
+        rv.setAdapter(new MyAdapter());
+    }
 
     public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>
     {
-        private final List<Pair<String,String>> characters = Arrays.asList(
-                Pair.create("test", "test")
-        );
+            public final List<String> ToDo = Arrays.asList
+            (
+                "Bonjour","Bonsoir"
+             );
 
-
-    }
-
-    @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
-    {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.contener_list, parent, false);
-        return new MyViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(MyViewHolder holder, int position)
-    {
-
-        Pair<String, String> pair = characaters.get(position);
-        holder.display(pair);
-    }
-
-    @Override
-    public int getItemCount()
-    {
-        return characters.size();
-    }
-
-    public class MyViewHolder extends RecyclerView.ViewHolder
-    {
-
-        private final TextView name;
-        private final TextView description;
-
-        private Pair<String, String> currentPair;
-
-        public MyViewHolder(final View itemView)
+        @Override
+        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
         {
-            super(itemView);
+            LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+            View view = inflater.inflate(R.layout.list_cell, parent, false);
+            return new MyViewHolder(view);
+        }
 
-            name = ((TextView) itemView.findViewById(R.id.title_editText));
-            description = ((TextView) itemView.findViewById(R.id.contener_editText));
+        @Override
+        public void onBindViewHolder(MyViewHolder holder, int position)
+        {
+            String Todo = ToDo.get(position);
+            holder.display(Todo);
+        }
 
-            itemView.setOnClickListener(new View.OnClickListener()
+        @Override
+        public int getItemCount()
+        {
+            return ToDo.size();
+        }
+
+        public class MyViewHolder extends RecyclerView.ViewHolder
+        {
+            private final TextView AFaire;
+
+            public MyViewHolder(final View itemView)
             {
-                @Override
-                public void onClick(View v)
+                super(itemView);
+
+                AFaire = ((TextView) itemView.findViewById(R.id.ToDo));
+
+                itemView.setOnClickListener(new View.OnClickListener()
                 {
-                    new AlertDialog.Builder(itemView.getContext())
-                            .setTitle(currentPair.first)
-                            .setMessage(currentPair.second)
-                            .show();
-                }
-            });
+                    @Override
+                    public void onClick(View v)
+                    {
 
-        }
+                    }
+                });
 
-        public void display(Pair<String, String> pair)
+            }
+
+            public void display(String ToDo)
+            {
+                AFaire.setText(ToDo);
+            }
+         }
+    }
+
+    private void writeToFile (String fileName, String toWrite, int mode)
+    {
+        try
         {
-            currentPair = pair;
-            name.setText(pair.first);
-            description.setText(pair.second);
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput(fileName, mode));
+            outputStreamWriter.write(toWrite);
+            outputStreamWriter.write("\n");
+            outputStreamWriter.close();
+        }
+        catch (IOException e)
+        {
+            e.getCause();
         }
     }
 
+    private void readFromFile (String fileName)
+    {
+       // String fileContent = "";
+        try
+        {
+
+            fileInput = openFileInput(fileName);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(fileInput));
+            StringBuilder out = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null)
+            {
+                out.append(line);
+            }
+           // fileContent = out.toString();
+            fileInput.close();
+        }
+        catch (IOException e)
+        {
+        }
+    }
 }

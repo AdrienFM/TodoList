@@ -12,7 +12,7 @@
         android:layout_height="192dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_weight="1.01"/>
+        android:layout_weight="1.07"/>
 
 
     <LinearLayout
@@ -22,12 +22,12 @@
 
         <Space
             android:layout_width="250dp"
-            android:layout_height="match_parent"/>
+            android:layout_height="56dp"/>
 
         <ImageButton
             android:id="@+id/addButton"
-            android:layout_width="96dp"
-            android:layout_height="match_parent"
+            android:layout_width="78dp"
+            android:layout_height="55dp"
             android:background="@null"
             android:src="@drawable/ic_addcicle"
             />

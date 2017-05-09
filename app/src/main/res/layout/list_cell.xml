@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:background="@drawable/list_cell_background"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/ToDo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:id="@+id/TodoTextView"
+        android:layout_width="279dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
         android:layout_marginBottom="15dp"
         android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_gravity="bottom"
+        android:src="@d"
+        />
 
 
 </LinearLayout>

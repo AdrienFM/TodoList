@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="Couleur">
+        <ListPreference
+            android:dialogTitle="Choisissez une couleur"
+            android:entries="@array/color_List"
+            android:entryValues="@array/color_List"
+            android:key="lisCouleurPref"
+            android:title="Choix de la couleur pour la toolbar"
+            android:icon="@drawable/ic_setcolor">
+        </ListPreference>
+    </PreferenceCategory>
+
+
+
+</PreferenceScreen>

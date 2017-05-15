@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="C:\Ecole\TodoList\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
-        <dex dex="C:\Ecole\TodoList\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_cc2f442c05c5aced233985cb847bddbde4cf3e28\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Ecole\TodoList\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="1980ca46aac18a204c8be62608c4fd35af010000">
+        sha1="f92b9069d8da60f4cf831d7ac33df46319798242">
         <dex dex="C:\Ecole\TodoList\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_3105caaf7c3b1688201565cd0eb339bb04eab21e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Ecole\TodoList\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
+        <dex dex="C:\Ecole\TodoList\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_cc2f442c05c5aced233985cb847bddbde4cf3e28\classes.dex" />
     </item>
 
 </items>

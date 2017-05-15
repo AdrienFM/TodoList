@@ -1,7 +1,7 @@
 package com.example.pc_adrien.todolist;
 
 import android.app.Activity;
-import android.content.DialogInterface;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.util.function.ToDoubleBiFunction;
 
 /**
  * Created by PC_Adrien on 2017-05-03.
@@ -49,8 +48,18 @@ public class contenerList extends Activity
             public void onClick(View v)
             {
                 String input = TitleTextView.getText().toString();
-                writeToFile("ListeDeChoseAFaire.txt",input,MODE_APPEND);
-                startActivity(MyIntentBack);
+                if(input.isEmpty())
+                {
+                    new AlertDialog.Builder(doneButton.getContext())
+                            .setTitle("Erreur")
+                            .setMessage("L'entrée du texte est vide")
+                            .show();
+                }
+                else
+                {
+                    writeToFile("ToDoList.txt",input,MODE_APPEND);
+                    startActivity(MyIntentBack);
+                }
             }
         });
     }
